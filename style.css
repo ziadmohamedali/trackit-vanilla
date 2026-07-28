@@ -136,6 +136,15 @@ h2 {
   color: #b91c1c;
 }
 
+.edit-btn {
+  background-color: #ffc107; /* Warning yellow color */
+  color: #212529;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
 @media (max-width: 480px) {
   body {
     padding: 15px 10px;
