@@ -37,6 +37,7 @@ function renderTasks() {
         <button class="action-btn status-btn" onclick="toggleStatus(${task.id})">
           ${isCompleted ? 'Wait ⏳' : 'Done ✅'}
         </button>
+        <button class="action-btn edit-btn" onclick="editTask(${task.id})">Edit ✏️</button>
         <button class="action-btn delete-btn" onclick="deleteTask(${task.id})">Delete 🗑️</button>
       </div>
     `;
@@ -44,7 +45,7 @@ function renderTasks() {
   });
 }
 
-// 4. Operations: Add, Update, Delete
+// 4. Operations: Add, Update, Edit, Delete
 addTaskBtn.addEventListener('click', () => {
   const text = taskInput.value.trim();
   if (!text) return alert('Please enter a task name!');
@@ -57,6 +58,18 @@ addTaskBtn.addEventListener('click', () => {
 function toggleStatus(id) {
   tasks = tasks.map(t => t.id === id ? { ...t, status: t.status === 'completed' ? 'waiting' : 'completed' } : t);
   renderTasks();
+}
+
+function editTask(id) {
+  const taskToEdit = tasks.find(t => t.id === id);
+  if (!taskToEdit) return;
+
+  const newText = prompt('Edit your task:', taskToEdit.text);
+  
+  if (newText !== null && newText.trim() !== '') {
+    tasks = tasks.map(t => t.id === id ? { ...t, text: newText.trim() } : t);
+    renderTasks();
+  }
 }
 
 function deleteTask(id) {
@@ -74,5 +87,4 @@ filterButtons.forEach(btn => {
   });
 });
 
-// Initial Load
 renderTasks();
