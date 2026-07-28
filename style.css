@@ -127,5 +127,50 @@ h2 {
   font-size: 14px;
 }
 
-.status-btn { background: #e0f2fe; color: #0369a1; }
-.delete-btn { background: #fee2e2; color: #b91c1c; }
+.status-btn {
+  background: #e0f2fe;
+ color: #0369a1;
+}
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  #addTaskBtn {
+    padding: 12px;
+  }
+
+  .filter-buttons {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .card-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
